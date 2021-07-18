@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1, user-scalable=yes">
+    <title>Philomathic | The Math tester</title>
+    <link rel="stylesheet" href="QuizPage.css">
+</head>
+
+<body>
+    <h1>Philomathic</h1>
+    <div id="container">
+        <div id="score" class="card">Score : <span id="scorevalue">0</span></div>
+        <div id="correct">you're right </div>
+        <div id="wrong">Try Again</div>
+        <div id="quest" class="card"></div>
+        <div id="Help" class="card">Let's Start The Quiz</div>
+        <div id="Answers">
+            <a>
+                <div id="box1" class="box"></div>
+            </a>
+            <a>
+                <div id="box2" class="box"></div>
+            </a>
+            <a>
+                <div id="box3" class="box"></div>
+            </a>
+            <a>
+                <div id="box4" class="box"></div>
+            </a>
+
+        </div>
+        <div id="OperateGame" class="card"><b>Start Quiz</b></div>
+        <div id="YourTime">Time remaining : <span id="ReduceTime">60</span> sec.</div>
+        <div id="GameOver" >
+        </div>
+    </div>
+    <script src="quizpage.js"></script>
+
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
+    <script type="text/javascript">
+        VanillaTilt.init(document.querySelector("#quest"), {
+            max: 30,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.4,
+        });
+    </script>
+
+
+</body>
+
+</html>

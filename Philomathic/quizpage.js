@@ -27,23 +27,27 @@
              GenerateQA();
            }
 }
-for(i=1; i<5; i++){
+
+for(i=1; i<5; i++)
+{
    document.getElementById("box"+i).onclick = function()
    {
     if(playing==true)
     { 
         if(this.innerHTML == RytAns){  
             score++;
-            RytInc++; 
+            RytInc++;
+            StartCountdownAdd();
             document.getElementById("scorevalue").innerHTML= score;
             hide("wrong");
             show("correct");
             setTimeout(function(){hide("correct");}, 1000);
             GenerateQA();
         }else{
-            score--;
-            WrgInc++;
-            document.getElementById("scorevalue").innerHTML= score;
+            // score--;
+            // WrgInc++;
+            // document.getElementById("scorevalue").innerHTML= score;
+            StartCountdownSub();
             hide("correct");
             show("wrong");
             GenerateQA();
@@ -54,8 +58,37 @@ for(i=1; i<5; i++){
        
        
    }
-    }
-function StartCountdown(){
+}
+
+// to increment time for every correct ans
+function StartCountdownAdd()
+{
+    action = setInterval(function()
+    {
+        timeleft += 13;
+        document.getElementById("ReduceTime").innerHTML=timeleft;
+        StopCountdown();
+    },500);
+}
+
+// end 
+
+// to decrement time for every wrong ans
+function StartCountdownSub()
+{
+    action = setInterval(function()
+    {
+        timeleft -= 5;
+        document.getElementById("ReduceTime").innerHTML=timeleft;
+        StopCountdown();
+    },1000);
+}
+
+// end 
+
+
+function StartCountdown()
+{
     action = setInterval(function()
     {
         timeleft -= 1;
@@ -81,14 +114,14 @@ function StopCountdown(){
 
 
 function hide(Id)
-  {
+{
     document.getElementById(Id).style.display = "none";
-  }
+}
 
 function show(Id)
-   {
+{
     document.getElementById(Id).style.display = "block";
-   }
+}
 
 function GenerateQA()
 {   var Op = ['X','+','-','÷'];

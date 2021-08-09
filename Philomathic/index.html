@@ -18,7 +18,7 @@
         <div id="Help" class="card">Let's Start The Quiz</div>
         <div id="Answers">
             <a>
-                <div id="box1" class="box"></div>
+                <div id="box1" class="box" ></div>
             </a>
             <a>
                 <div id="box2" class="box"></div>
@@ -40,7 +40,7 @@
 
     <script type="text/javascript" src="vanilla-tilt.js"></script>
     <script type="text/javascript">
-        VanillaTilt.init(document.querySelector("#quest"), {
+        VanillaTilt.init(document.querySelectorAll(".card"), {
             max: 20,
             speed: 500,
             glare: true,

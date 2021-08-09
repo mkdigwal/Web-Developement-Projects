@@ -44,7 +44,7 @@ for(i=1; i<5; i++)
             setTimeout(function(){hide("correct");}, 1000);
             GenerateQA();
         }else{
-            // score--;
+            // score--;  // If we want to decrement score for every worng answer and not the time then uncommnt these three lines and comment out the StartCountdownSub() function.
             // WrgInc++;
             // document.getElementById("scorevalue").innerHTML= score;
             StartCountdownSub();
@@ -65,7 +65,7 @@ function StartCountdownAdd()
 {
     action = setInterval(function()
     {
-        timeleft += 13;
+        timeleft += 11;
         document.getElementById("ReduceTime").innerHTML=timeleft;
         StopCountdown();
     },500);
@@ -78,15 +78,23 @@ function StartCountdownSub()
 {
     action = setInterval(function()
     {
-        timeleft -= 5;
-        document.getElementById("ReduceTime").innerHTML=timeleft;
-        StopCountdown();
-    },1000);
+        if(timeleft >5)
+        {
+            timeleft -= 5;
+            document.getElementById("ReduceTime").innerHTML=timeleft;
+            StopCountdown();
+        }
+        else
+        {
+            timeleft = 1;
+            StopCountdown();
+        }
+    },100);
 }
 
 // end 
 
-
+// Start CountDown and continuously decrement time by 1 sec.
 function StartCountdown()
 {
     action = setInterval(function()
@@ -107,6 +115,8 @@ function StartCountdown()
         }
     },1000);
 }
+
+// end
 
 function StopCountdown(){
     clearInterval(action);
